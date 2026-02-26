@@ -1,0 +1,303 @@
+%% main.tex
+%% 中国农业大学学术学位博士学位论文 - 主文件
+%%
+%% 编译方式（推荐命令行或使用latexmk）：
+%%   xelatex main
+%%   bibtex main        （如使用biblatex则用 biber main）
+%%   makeindex main.nlo -s nomencl.ist -o main.nls  （如有符号表）
+%%   xelatex main
+%%   xelatex main
+%%
+%% 选项说明：
+%%   默认目录显示到二级标题（1.1）
+%%   如需显示三级标题（1.1.1），请将下面的 [] 改为 [tocthree]
+
+\documentclass[]{CAUthesis}
+
+%% ============================================================
+%% 论文信息填写
+%% ============================================================
+\classno{}                                  % 分类号（选填）
+\secretlevel{}                              % 密级（公开则留空）
+\studentid{2021XXXXX}                       % 学号
+\titlecn{论文中文题目}                       % 中文题目
+\titleen{English Title of the Thesis}        % 英文题目
+\author{张三}                               % 研究生姓名
+\supervisor{李四 教授}                       % 指导教师
+\cosupervisor{}                              % 合作指导教师（无则留空）
+\degreetype{农学博士}                        % 申请学位门类级别
+\major{作物栽培学与耕作学}                    % 专业名称
+\research{作物高产高效栽培理论与技术}          % 研究方向
+\college{农学院}                             % 所在学院
+\date{2025年6月}                             % 论文完成日期
+
+%% ============================================================
+%% 符号表定义（如有需要）
+%% ============================================================
+% 在此定义符号，编译时需运行 makeindex
+% 示例：
+\nomenclature{$\alpha$}{学习率}
+\nomenclature{$\beta$}{衰减系数}
+\nomenclature{DNA}{脱氧核糖核酸 (Deoxyribonucleic Acid)}
+
+%% ============================================================
+%% 正文开始
+%% ============================================================
+\begin{document}
+
+%% ---- 封面 ----
+\makecover{}
+
+%% ---- 独创性声明 ----
+\makedeclaration{}
+
+%% ---- 前置部分开始 ----
+\frontmatter{}
+
+%% ---- 中文摘要 ----
+\begin{abstractcn}
+  在此撰写中文摘要内容。
+
+  论文摘要内容包括研究工作目的、研究方法、所取得的结果和结论；应突出本论文的创造性成果或新见解，语言精练。博士论文摘要一般不超过1500字。
+\end{abstractcn}
+\keywordscn{关键词一，关键词二，关键词三，关键词四，关键词五}
+
+%% ---- 英文摘要 ----
+\begin{abstracten}
+  Write English abstract here.
+
+  The abstract should include the purpose of the research, methods, results and conclusions. It should highlight the creative achievements or new insights of this thesis.
+\end{abstracten}
+\keywordsen{Keyword 1, Keyword 2, Keyword 3, Keyword 4, Keyword 5}
+
+%% ---- 目录 ----
+\tableofcontents{}
+
+%% ---- 插图和附表清单（图表较多时使用） ----
+\makelistoffiguresandtables{}
+
+%% ---- 主要符号表（如有需要） ----
+% 取消以下注释以启用符号表，编译时需运行 makeindex
+\makesymboltable{}
+
+%% ---- 正文部分开始 ----
+\mainmatter{}
+
+%% ============================================================
+%% 第一章 引言
+%% ============================================================
+\chapter{引言}
+
+\section{研究背景与意义}
+
+在此撰写研究背景与意义的内容。正文采用小四号宋体，行间距为20磅。文中英文、罗马字符一般采用Times New Roman正体。
+
+引用示例：产业融合\citep{tiancaihong2024}、经济增长\citep{zhang2023}。
+
+\subsection{研究背景}
+
+这是三级标题的示例内容。
+
+\section{国内外研究进展}
+
+在此撰写文献综述内容。
+
+\section{研究目标与内容}
+
+在此撰写研究目标与内容。
+
+%% ============================================================
+%% 第二章 材料与方法
+%% ============================================================
+\chapter{材料与方法}
+
+\section{实验材料}
+
+正文内容示例。
+
+\subsection{供试材料}
+
+更详细的材料描述。
+
+\section{实验方法}
+
+实验方法描述。
+
+\section{数据分析}
+
+数据分析方法描述。
+
+% ---- 公式示例 ----
+公式编号按章节编号，居中对齐，编号右对齐：
+
+\begin{equation}
+  E = mc^2
+  \label{eq:einstein}
+\end{equation}
+
+\begin{equation}
+  F(x) = \int_{-\infty}^{x} f(t) \, dt
+  \label{eq:integral}
+\end{equation}
+
+由\cref{eq:einstein}可知，质量与能量……
+
+%% ============================================================
+%% 第三章 结果与分析
+%% ============================================================
+\chapter{结果与分析}
+
+\section{实验结果一}
+
+\subsection{详细结果}
+
+% ---- 图片示例 ----
+% 图形不能跨页显示，图序、标题、图例说明居中置于图的下方
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.8\textwidth]{figures/example.png}
+  \rule{0.8\textwidth}{5cm}  % 占位符，请替换为实际图片
+  \caption{示例图片标题}\label{fig:example}
+\end{figure}
+
+如\cref{fig:example} 所示，实验结果表明……
+
+% ---- 三线表示例 ----
+% 三线表：顶线和底线为粗线(1.5磅)，栏目线为细线(0.75磅)
+\begin{table}[htbp]
+  \centering
+  \caption{实验数据分析}\label{tab:example}
+  \zihao{5}\songti{}  % 表格内容五号宋体
+  \begin{tabular}{lccc}
+    \toprule
+        & 食品安全类文档数 & 非食品安全类文档数 & 总数    \\
+    \midrule
+    训练集 & 1898     & 11388     & 13286 \\
+    验证集 & 250      & 250       & 500   \\
+    测试集 & 250      & 250       & 500   \\
+    \midrule
+    总数  & 2398     & 11888     & 14286 \\
+    \bottomrule
+  \end{tabular}
+
+  \vspace{3pt}
+  {\zihao{-5}\songti{} 注：表注内容采用小五号宋体。}  % 表注：小五号宋体
+\end{table}
+
+如\cref{tab:example} 所示，实验数据……
+
+\section{实验结果二}
+
+\subsection{详细结果}
+
+分析讨论内容。
+
+\section{实验结果三}
+
+结果描述。
+
+%% ============================================================
+%% 第四章 讨论
+%% ============================================================
+\chapter{讨论}
+
+\section{主要发现}
+
+讨论内容。
+
+\section{与已有研究的比较}
+
+比较分析。
+
+\section{研究局限与展望}
+
+局限性和未来展望。
+
+%% ============================================================
+%% 第五章 结论
+%% ============================================================
+\chapter{结论}
+
+\section{主要结论}
+
+结论应明确、简练、完整、准确。
+
+\section{创新点}
+
+创新点描述。
+
+\section{展望}
+
+未来研究展望。
+
+%% ============================================================
+%% 后置部分
+%% ============================================================
+\backmatter{}
+
+%% ---- 参考文献 ----
+% 参考文献一律放在结论/讨论之后
+% 使用BibTeX管理参考文献
+\phantomsection{}
+% \addcontentsline{toc}{chapter}{参考文献}
+{
+  \zihao{5}  % 参考文献用五号宋体
+  \bibliography{references}  % 引用 references.bib 文件
+}
+
+%% ---- 致谢 ----
+\begin{acknowledgements}
+  在此撰写致谢内容。致谢对象限于对课题研究、学位论文完成等方面有较重要帮助的人员。
+
+  \hfill 2025年6月
+\end{acknowledgements}
+
+%% ---- 附录 ----
+\appendix
+
+\chapter{补充数据}
+
+附录内容。凡不宜放在论文正文中，但又与论文有关的研究过程或资料。
+
+\chapter{程序代码}
+
+更多附录内容。每一附录均另页起。
+
+%% ---- 作者简介 ----
+\begin{authorinfo}
+  \textbf{基本介绍：}张三，男，1995年1月出生，XX省XX市人。
+
+  \vspace{1ex}
+  \textbf{教育经历：}
+  \begin{itemize}[leftmargin=2em, nosep]
+    \item 2013年9月—2017年6月，XX大学，XX专业，本科/学士
+    \item 2017年9月—2019年6月，XX大学，XX专业，硕士
+    \item 2019年9月—2025年6月，中国农业大学，XX专业，博士
+  \end{itemize}
+
+  \vspace{1ex}
+  \textbf{研究生期间发表的学术论文：}
+  \begin{enumerate}[leftmargin=2em, nosep]
+    \item 张三，李四. 论文题目[J]. 期刊名称，2024，XX (X)：XX-XX.\
+    \item Zhang S, Li S. Paper title[J]. Journal Name, 2024, XX (X): XX-XX.\
+  \end{enumerate}
+
+  \vspace{1ex}
+  \textbf{研究生期间主持/参与的科研项目：}
+  \begin{enumerate}[leftmargin=2em, nosep]
+    \item 项目名称，项目来源，项目编号，起止时间，参与
+  \end{enumerate}
+
+  \vspace{1ex}
+  \textbf{研究生期间获得的奖励和荣誉：}
+  \begin{enumerate}[leftmargin=2em, nosep]
+    \item 奖励名称，授予单位，年份
+  \end{enumerate}
+
+  \vspace{1ex}
+  \textbf{其他成果：}
+
+  无。
+\end{authorinfo}
+
+\end{document}
