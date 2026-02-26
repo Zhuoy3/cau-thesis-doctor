@@ -5,6 +5,12 @@
 %%
 %% 说明：本模板适用于学术学位博士研究生
 
+%% Author: ZHuo Yue
+%% Email: zhuo0000yue@gmail.com
+%% GitHub: github.com/Zhuoy3/cau-thesis-doctor
+%% License: GPL-3.0 license
+%% Last Modified: 2026/02/26
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{CAUthesis}[2025/08/13 China Agricultural University Doctoral Thesis Template]
 
@@ -356,11 +362,11 @@
         \fontsize{12pt}{12pt}\selectfont
         \makebox[4em][s]{分类号}：\underline{\makebox[6em][c]{\cau@classno}}
         \hfill
-        \makebox[5em][s]{单位代码}：\underline{\makebox[6em][c]{10019}}
+        \makebox[5em][s]{单位代码}：\underline{\makebox[8em][c]{10019}}
         \\[4pt]
         \makebox[4em][s]{密\hfill 级}：\underline{\makebox[6em][c]{\cau@secretlevel}}
         \hfill
-        \makebox[5em][s]{学\hfill 号}：\underline{\makebox[6em][c]{\cau@studentid}}
+        \makebox[5em][s]{学\hfill 号}：\underline{\makebox[8em][c]{\cau@studentid}}
         \par
       }
 
