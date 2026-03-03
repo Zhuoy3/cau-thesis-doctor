@@ -386,7 +386,7 @@
       % 例如: \includegraphics[width=0.6\textwidth]{cau_logo.png}
       % 当前使用文字占位
       \IfFileExists{cau_logo.png}{%
-        \includegraphics[width=0.75\textwidth]{cau_logo.png}
+        \includegraphics[width=0.5\textwidth]{cau_logo.png}
       }{
         {\zihao{0}\heiti 中国农业大学}
       }
