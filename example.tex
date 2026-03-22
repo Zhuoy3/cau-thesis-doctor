@@ -12,15 +12,7 @@
 %%   默认目录显示到二级标题（1.1）
 %%   如需显示三级标题（1.1.1），请将下面的 [] 改为 [tocthree]
 
-%% Author: ZHuo Yue
-%% Email: zhuo0000yue@gmail.com
-%% GitHub: github.com/Zhuoy3/cau-thesis-doctor
-%% License: GPL-3.0 license
-%% Last Modified: 2026/02/26
-
 \documentclass[]{CAUthesis}
-
-\addbibresource{references.bib}
 
 %% ============================================================
 %% 论文信息填写
@@ -100,7 +92,7 @@
 
 在此撰写研究背景与意义的内容。正文采用小四号宋体，行间距为20磅。文中英文、罗马字符一般采用Times New Roman正体。
 
-引用示例：产业融合\parencite{tiancaihong2024}、经济增长\parencite{zhang2023}。
+引用示例：产业融合\citep{tiancaihong2024}、经济增长\citep{zhang2023}。
 
 \subsection{研究背景}
 
@@ -246,17 +238,7 @@
 %% ---- 参考文献 ----
 % 参考文献一律放在结论/讨论之后
 % 使用BibTeX管理参考文献
-% \phantomsection{}
-% % \addcontentsline{toc}{chapter}{参考文献}
-% {
-%   \zihao{5}  % 参考文献用五号宋体
-%   \bibliography{references}  % 引用 references.bib 文件
-% }
-\phantomsection{}
-\printbibliography[
-  heading=bibintoc,
-  title={参考文献}
-]
+\phantomsection{}\printbibliography[heading=bibintoc, title={参考文献}]
 
 %% ---- 致谢 ----
 \begin{acknowledgements}
