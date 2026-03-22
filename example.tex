@@ -246,17 +246,7 @@
 %% ---- 参考文献 ----
 % 参考文献一律放在结论/讨论之后
 % 使用BibTeX管理参考文献
-% \phantomsection{}
-% % \addcontentsline{toc}{chapter}{参考文献}
-% {
-%   \zihao{5}  % 参考文献用五号宋体
-%   \bibliography{references}  % 引用 references.bib 文件
-% }
-\phantomsection{}
-\printbibliography[
-  heading=bibintoc,
-  title={参考文献}
-]
+\phantomsection{}\printbibliography[heading=bibintoc, title={参考文献}]
 
 %% ---- 致谢 ----
 \begin{acknowledgements}

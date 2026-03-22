@@ -41,6 +41,7 @@
 \RequirePackage{graphicx}            % 图片
 \RequirePackage{booktabs}            % 三线表
 \RequirePackage{caption}             % 图表标题
+\RequirePackage{bicaption}           % 支持双语图表标题
 \RequirePackage{amsmath}             % 数学公式
 % \RequirePackage{amssymb}             % 数学符号
 \RequirePackage{amsthm}              % 定理环境
@@ -50,6 +51,8 @@
 \RequirePackage{tabularx}            % 表格
 \RequirePackage{longtable}           % 长表格（跨页）
 \RequirePackage{multirow}            % 表格合并行
+\RequirePackage{threeparttable}      % 自动调整表格注释宽度
+\RequirePackage{makecell}            % 表格内换行和多行单元格
 \RequirePackage{setspace}            % 行间距
 \RequirePackage{tikz}                % 绘图（用于文武线等）
 \RequirePackage{etoolbox}            % 编程工具
@@ -85,6 +88,14 @@
 }
 
 %% ============================================================
+%% 浮动体设置（解决图表独占一页、上下空白过大的问题）
+%% ============================================================
+\renewcommand{\textfraction}{0.05}      % 页面最少必须有 5% 的文字，否则允许浮动体占据整页
+\renewcommand{\topfraction}{0.95}       % 页面顶部最多允许占 95% 的浮动体
+\renewcommand{\bottomfraction}{0.95}    % 页面底部最多允许占 95% 的浮动体
+\renewcommand{\floatpagefraction}{0.90} % 浮动页必须被占用 80% 以上才允许生成独立浮动页
+
+%% ============================================================
 %% 字体设置
 %% ============================================================
 % Windows系统字体设置
@@ -92,6 +103,7 @@
 \setmainfont{Times New Roman}  % 英文正文字体
 \setsansfont{Arial}             % 英文无衬线字体（备用）
 \setmonofont{Courier New}       % 英文等宽字体（备用）
+% \setmathfont{Latin Modern Math}
 
 % 中文字体由ctex自动配置（Windows下默认：宋体/黑体/楷体/仿宋）
 % 如需手动指定，取消以下注释并修改：
@@ -139,6 +151,14 @@
       aftername  = \quad,
       beforeskip = {1\baselineskip},
       afterskip  = {1\baselineskip},
+    },
+  subsubsection = {
+      name       = {（,）},
+      number     = \arabic{subsubsection},
+      format     = \hspace{2\ccwd}\kaishu\zihao{-4},
+      aftername  = {},
+      beforeskip = {0.75\baselineskip},
+      afterskip  = {0.75\baselineskip},
     },
 }
 
@@ -253,9 +273,13 @@
   labelsep      = space,
   figureposition = bottom,
   tableposition  = top,
+  justification  = centering,
 }
 \captionsetup[figure]{name={图}}
 \captionsetup[table]{name={表}}
+
+\captionsetup[figure][bi-second]{name=Figure, list=no}
+\captionsetup[table][bi-second]{name=Table, list=no}
 
 % 图表按章编号
 \counterwithin{figure}{chapter}
@@ -293,6 +317,7 @@
 \crefname{chapter}{第}{第}
 \crefname{section}{节}{节}
 \crefname{subsection}{小节}{小节}
+\crefname{subsubsection}{小节}{小节}
 \crefname{equation}{公式}{公式}
 
 % 针对图、表取消默认的空格（英文通常是 fig. 1，中文不需要空格即 图1）
@@ -303,6 +328,13 @@
 \crefformat{equation}{#2公式（#1）#3}
 % 如果需要引用多个公式，例如 \cref{eq:1,eq:2}，也需要定义复数格式（按需添加）
 \crefmultiformat{equation}{#2公式（#1）#3}{ 和 #2（#1）#3}{、#2（#1）#3}{ 和 #2（#1）#3}
+
+% 章节引用：输出为“第1章”、“第1.1节”、“第1.1.1节”
+\crefformat{chapter}{#2第#1章#3}
+\crefformat{section}{#2第#1节#3}
+\crefformat{subsection}{#2第#1小节#3}
+\crefformat{subsubsection}{#2第#1小节#3}
+\newcommand{\creft}[1]{\cref{#1}“\nameref{#1}”}
 
 %% ============================================================
 %% 三线表支持
@@ -653,10 +685,22 @@
   colorlinks  = true,
   linkcolor   = black,
   citecolor   = black,
-  urlcolor    = blue,
+  urlcolor    = black,
   bookmarksnumbered = true,
   bookmarksopen     = true,
   pdfstartview      = FitH,
+}
+
+%% ============================================================
+%% 列表环境设置
+%% ============================================================
+
+\setlist[enumerate]{
+  itemindent=0pt,
+  leftmargin=4\ccwd,
+  itemsep=0pt,
+  parsep=0pt,
+  topsep=0pt
 }
 
 %% ============================================================
